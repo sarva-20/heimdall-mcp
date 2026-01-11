@@ -1,0 +1,17 @@
+{
+  "name": "heimdall-mcp",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "systeminformation": "^5.30.2",
+    "zod": "^4.3.5"
+  }
+}
