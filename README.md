@@ -1,4 +1,4 @@
-# 🛡️ Heimdall – MCP Server 🌈⚔️
+# 🛡️ Heimdall – MCP Server ⚔️
 
 > *“The all-seeing guardian of the Bifröst.”*
 
