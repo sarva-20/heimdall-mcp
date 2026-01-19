@@ -2,7 +2,9 @@
 
 <div align="center">
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/sarva-20/heimdall-mcp/releases)
 [![MCP](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-blue)](https://modelcontextprotocol.io)
+[![mcpservers.org](https://img.shields.io/badge/listed-mcpservers.org-green)](https://mcpservers.org)
 [![macOS](https://img.shields.io/badge/platform-macOS-lightgrey)](https://www.apple.com/macos/)
 [![Bun](https://img.shields.io/badge/runtime-bun-ff69b4)](https://bun.sh)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -10,6 +12,8 @@
 **"The all-seeing guardian of the Bifröst."**
 
 Heimdall bridges Claude Desktop and your macOS system, giving AI the power to monitor hardware, control applications, and interact with your workflow.
+
+**[📦 Latest Release](https://github.com/sarva-20/heimdall-mcp/releases) • [📖 Documentation](docs/INSTALLATION.md) • [🐛 Report Bug](https://github.com/sarva-20/heimdall-mcp/issues)**
 
 </div>
 
@@ -45,16 +49,11 @@ open -e ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 ---
 
-## 📚 Documentation
+## 🎬 Demo
 
-- **[Installation Guide](docs/INSTALLATION.md)** - Complete setup instructions
-- **[Usage Guide](docs/USAGE.md)** - Examples and commands
-- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and fixes
-- **[Contributing](docs/CONTRIBUTING.md)** - How to contribute
+> **Coming Soon:** Screenshots and demo videos showing Heimdall in action!
 
----
-
-## 🎯 Example Usage
+### Example Commands
 
 ```
 "Check my battery levels"
@@ -63,6 +62,16 @@ open -e ~/Library/Application\ Support/Claude/claude_desktop_config.json
 "Read my clipboard and explain the error"
 "Save this code to my desktop as script.py"
 ```
+
+---
+
+## 📚 Documentation
+
+- **[Installation Guide](docs/INSTALLATION.md)** - Complete setup instructions
+- **[Usage Guide](docs/USAGE.md)** - Examples and commands
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and fixes
+- **[Contributing](docs/CONTRIBUTING.md)** - How to contribute
+- **[Changelog](CHANGELOG.md)** - Version history
 
 ---
 
@@ -98,6 +107,67 @@ open -e ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 ---
 
+## 🗓️ Roadmap
+
+### v0.2 - Media & Productivity (Coming Soon)
+- 🎵 Spotify advanced controls (play, pause, skip, playlists)
+- 🪟 Window management (focus, minimize, list)
+- 🎵 Get currently playing track
+
+### v0.3 - Smart Notifications
+- 🔔 System notifications and scheduled reminders
+- 📁 Enhanced file operations (read, search)
+
+### v0.4 - System Control
+- 🎨 Brightness and volume control
+- 🌐 Browser integration
+- 🔐 Lock screen and sleep commands
+
+[View Full Roadmap](CHANGELOG.md#unreleased)
+
+---
+
+## 📦 Installation
+
+### Quick Install
+
+```bash
+git clone https://github.com/sarva-20/heimdall-mcp.git
+cd heimdall-mcp
+bun install
+```
+
+### Configure Claude Desktop
+
+Find your paths:
+```bash
+which bun  # Get Bun path
+pwd        # Get Heimdall path
+```
+
+Edit config:
+```bash
+open -e ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+Add:
+```json
+{
+  "mcpServers": {
+    "heimdall-mcp": {
+      "command": "/path/to/bun",
+      "args": ["run", "/path/to/heimdall-mcp/index.ts"]
+    }
+  }
+}
+```
+
+Restart Claude Desktop (`Cmd + Q`).
+
+**Detailed instructions:** [Installation Guide](docs/INSTALLATION.md)
+
+---
+
 ## 📜 License
 
 MIT License - see [LICENSE](LICENSE) for details.
@@ -106,7 +176,17 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🙏 Acknowledgments
 
-Built with the [Model Context Protocol](https://modelcontextprotocol.io) by Anthropic.
+- Listed on [mcpservers.org](https://mcpservers.org)
+- Built with the [Model Context Protocol](https://modelcontextprotocol.io) by Anthropic
+- Inspired by Norse mythology and Heimdall, the all-seeing guardian
+
+---
+
+## 📬 Contact & Support
+
+**Sarvatarshan Sankar**
+- GitHub: [@sarva-20](https://github.com/sarva-20)
+- Repository: [heimdall-mcp](https://github.com/sarva-20/heimdall-mcp)
 
 ---
 
@@ -116,6 +196,6 @@ Built with the [Model Context Protocol](https://modelcontextprotocol.io) by Anth
 
 Made with ❤️ by [Sarvatarshan Sankar](https://github.com/sarva-20)
 
-[Report Bug](https://github.com/sarva-20/heimdall-mcp/issues) • [Request Feature](https://github.com/sarva-20/heimdall-mcp/issues)
+[⭐ Star on GitHub](https://github.com/sarva-20/heimdall-mcp) • [Report Bug](https://github.com/sarva-20/heimdall-mcp/issues) • [Request Feature](https://github.com/sarva-20/heimdall-mcp/issues)
 
 </div>
