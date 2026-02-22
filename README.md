@@ -1,5 +1,8 @@
 # 🛡️ Heimdall MCP Server ⚔️
 
+## 🌐 **[Visit Official Website](https://heimdall-mcp-v02.vercel.app)** | [Documentation](docs/) | [GitHub](https://github.com/sarva-20/heimdall-mcp)
+
+---
 <div align="center">
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/sarva-20/heimdall-mcp/releases)
@@ -33,6 +36,31 @@ Heimdall bridges Claude Desktop and your macOS system, giving AI the power to mo
 
 ---
 
+---
+
+## 📁 Repository Structure
+
+This monorepo contains:
+
+- **`/src`** - Heimdall MCP Server (TypeScript)
+- **`/website`** - Official React landing page
+- **`/docs`** - Complete documentation
+
+### 🌐 Website
+
+Our landing page is built with React + Vite + Tailwind and deployed on Vercel.
+
+**Live at:** [heimdall-mcp-v02.vercel.app](https://heimdall-mcp-v02.vercel.app)
+
+To run locally:
+```bash
+cd website
+npm install
+npm run dev
+```
+
+---
+
 ## 🚀 Quick Start
 
 ```bash
@@ -51,8 +79,9 @@ open -e ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 ## 🎬 Demo
 
-> **Coming Soon:** Screenshots and demo videos showing Heimdall in action!
+**🌐 [Interactive Demo on Our Website](https://heimdall-mcp-v02.vercel.app)** - Try Heimdall commands in your browser!
 
+See live examples, explore features, and test the interactive playground.
 ### Example Commands
 
 ```
@@ -109,10 +138,11 @@ open -e ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 ## 🗓️ Roadmap
 
-### v0.2 - Media & Productivity (Coming Soon)
+### v0.2 - Media & Productivity ✅ **Released**
 - 🎵 Spotify advanced controls (play, pause, skip, playlists)
 - 🪟 Window management (focus, minimize, list)
 - 🎵 Get currently playing track
+- 🎨 System control (volume, brightness, dark mode)
 
 ### v0.3 - Smart Notifications
 - 🔔 System notifications and scheduled reminders
@@ -189,13 +219,12 @@ MIT License - see [LICENSE](LICENSE) for details.
 - Repository: [heimdall-mcp](https://github.com/sarva-20/heimdall-mcp)
 
 ---
-
 <div align="center">
 
 **🛡️ Heimdall is now watching over your system. ⚔️**
 
 Made with ❤️ by [Sarvatarshan Sankar](https://github.com/sarva-20)
 
-[⭐ Star on GitHub](https://github.com/sarva-20/heimdall-mcp) • [Report Bug](https://github.com/sarva-20/heimdall-mcp/issues) • [Request Feature](https://github.com/sarva-20/heimdall-mcp/issues)
+**[🌐 Visit Website](https://heimdall-mcp-v02.vercel.app)** • [⭐ Star on GitHub](https://github.com/sarva-20/heimdall-mcp) • [Report Bug](https://github.com/sarva-20/heimdall-mcp/issues) • [Request Feature](https://github.com/sarva-20/heimdall-mcp/issues)
 
 </div>
