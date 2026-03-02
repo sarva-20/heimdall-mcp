@@ -1,4 +1,5 @@
 import React from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Hero from './components/Hero'
 import LiveStats from './components/LiveStats'
 import Features from './components/Features'
@@ -36,6 +37,7 @@ function App() {
         <Feedback />
       </FadeInSection>
       <Footer />
+      <Analytics />
     </div>
   )
 }
