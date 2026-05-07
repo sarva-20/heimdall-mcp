@@ -2,13 +2,16 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import si from "systeminformation";
 import { z } from "zod";
-import { exec } from "child_process";
+import { exec, execFile } from "child_process";
 import util from "util";
 import { writeFile, readFile, readdir, stat } from "fs/promises";
 import path from "path";
 import os from "os";
 
 const execAsync = util.promisify(exec);
+const execFileAsync = util.promisify(execFile);
+
+const escapeAppleScriptString = (value: string) => value.replace(/"/g, '\\"');
 
 // Initialize the Server
 const server = new McpServer({
@@ -152,7 +155,7 @@ server.tool(
   { message: z.string().describe("The message to speak aloud") },
   async ({ message }) => {
     try {
-      await execAsync(`say "${message.replace(/"/g, '\\"')}"`);
+      await execFileAsync("say", [message]);
       return {
         content: [
           {
@@ -181,7 +184,7 @@ server.tool(
   async () => {
     try {
       const screenshotPath = "/tmp/heimdall_screenshot.png";
-      await execAsync(`screencapture -x ${screenshotPath}`);
+      await execFileAsync("screencapture", ["-x", screenshotPath]);
       
       return {
         content: [
@@ -395,7 +398,7 @@ server.tool(
   { app_name: z.string().describe("Name of the application to launch (e.g., 'Safari', 'Visual Studio Code')") },
   async ({ app_name }) => {
     try {
-      await execAsync(`open -a "${app_name.replace(/"/g, '\\"')}"`);
+      await execFileAsync("open", ["-a", app_name]);
       return {
         content: [
           {
@@ -423,7 +426,7 @@ server.tool(
   { app_name: z.string().describe("Name of the application to quit") },
   async ({ app_name }) => {
     try {
-      await execAsync(`osascript -e 'quit app "${app_name.replace(/"/g, '\\"')}"'`);
+      await execFileAsync("osascript", ["-e", `quit app "${escapeAppleScriptString(app_name)}"`]);
       return {
         content: [
           {
@@ -486,7 +489,7 @@ server.tool(
   },
   async ({ query }) => {
     try {
-      await execAsync(`osascript -e 'tell application "Spotify" to play track "spotify:search:${query.replace(/"/g, '\\"')}"'`);
+      await execFileAsync("osascript", ["-e", `tell application "Spotify" to play track "spotify:search:${escapeAppleScriptString(query)}"`]);
       return {
         content: [
           {
@@ -514,7 +517,7 @@ server.tool(
   {},
   async () => {
     try {
-      await execAsync(`osascript -e 'tell application "Spotify" to pause'`);
+      await execFileAsync("osascript", ["-e", "tell application \"Spotify\" to pause"]);
       return {
         content: [
           {
@@ -542,7 +545,7 @@ server.tool(
   {},
   async () => {
     try {
-      await execAsync(`osascript -e 'tell application "Spotify" to play'`);
+      await execFileAsync("osascript", ["-e", "tell application \"Spotify\" to play"]);
       return {
         content: [
           {
@@ -570,7 +573,7 @@ server.tool(
   {},
   async () => {
     try {
-      await execAsync(`osascript -e 'tell application "Spotify" to next track'`);
+      await execFileAsync("osascript", ["-e", "tell application \"Spotify\" to next track"]);
       return {
         content: [
           {
@@ -598,7 +601,7 @@ server.tool(
   {},
   async () => {
     try {
-      await execAsync(`osascript -e 'tell application "Spotify" to previous track'`);
+      await execFileAsync("osascript", ["-e", "tell application \"Spotify\" to previous track"]);
       return {
         content: [
           {
@@ -659,7 +662,7 @@ server.tool(
   { volume: z.number().min(0).max(100).describe("Volume level (0-100)") },
   async ({ volume }) => {
     try {
-      await execAsync(`osascript -e 'tell application "Spotify" to set sound volume to ${volume}'`);
+      await execFileAsync("osascript", ["-e", `tell application "Spotify" to set sound volume to ${volume}`]);
       return {
         content: [
           {
@@ -729,7 +732,7 @@ server.tool(
   { app_name: z.string().describe("Name of the application to focus") },
   async ({ app_name }) => {
     try {
-      await execAsync(`osascript -e 'tell application "${app_name.replace(/"/g, '\\"')}" to activate'`);
+      await execFileAsync("osascript", ["-e", `tell application "${escapeAppleScriptString(app_name)}" to activate`]);
       return {
         content: [
           {
@@ -757,7 +760,7 @@ server.tool(
   { app_name: z.string().describe("Name of the application") },
   async ({ app_name }) => {
     try {
-      await execAsync(`osascript -e 'tell application "System Events" to tell process "${app_name.replace(/"/g, '\\"')}" to set miniaturized of window 1 to true'`);
+      await execFileAsync("osascript", ["-e", `tell application "System Events" to tell process "${escapeAppleScriptString(app_name)}" to set miniaturized of window 1 to true`]);
       return {
         content: [
           {
@@ -821,8 +824,8 @@ server.tool(
   { level: z.number().min(0).max(1).describe("Brightness level (0.0 = darkest, 1.0 = brightest)") },
   async ({ level }) => {
     try {
-      await execAsync(`osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'`);
-      await execAsync(`brightness ${level}`);
+      await execFileAsync("osascript", ["-e", 'tell application "System Events" to tell appearance preferences to set dark mode to false']);
+      await execFileAsync("brightness", [String(level)]);
       return {
         content: [
           {
@@ -850,7 +853,7 @@ server.tool(
   { volume: z.number().min(0).max(100).describe("Volume level (0-100)") },
   async ({ volume }) => {
     try {
-      await execAsync(`osascript -e 'set volume output volume ${volume}'`);
+      await execFileAsync("osascript", ["-e", `set volume output volume ${volume}`]);
       return {
         content: [
           {
@@ -878,7 +881,7 @@ server.tool(
   { enable: z.boolean().describe("True to enable dark mode, false to disable") },
   async ({ enable }) => {
     try {
-      await execAsync(`osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to ${enable}'`);
+      await execFileAsync("osascript", ["-e", `tell application "System Events" to tell appearance preferences to set dark mode to ${enable}`]);
       return {
         content: [
           {
@@ -910,7 +913,7 @@ server.tool(
   { url: z.string().describe("The URL to open") },
   async ({ url }) => {
     try {
-      await execAsync(`open "${url.replace(/"/g, '\\"')}"`);
+      await execFileAsync("open", [url]);
       return {
         content: [
           {
@@ -973,7 +976,7 @@ server.tool(
   },
   async ({ title, message }) => {
     try {
-      await execAsync(`osascript -e 'display notification "${message.replace(/"/g, '\\"')}" with title "${title.replace(/"/g, '\\"')}"`);
+      await execFileAsync("osascript", ["-e", `display notification "${escapeAppleScriptString(message)}" with title "${escapeAppleScriptString(title)}"`]);
       return {
         content: [
           {
@@ -1004,7 +1007,7 @@ server.tool(
   },
   async ({ title, message }) => {
     try {
-      await execAsync(`osascript -e 'display alert "${title.replace(/"/g, '\\"')}" message "${message.replace(/"/g, '\\"')}"`);
+      await execFileAsync("osascript", ["-e", `display alert "${escapeAppleScriptString(title)}" message "${escapeAppleScriptString(message)}"`]);
       return {
         content: [
           {
