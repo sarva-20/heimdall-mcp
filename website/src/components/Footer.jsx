@@ -14,7 +14,7 @@ const Footer = () => {
                         </div>
                         <p className="text-gray-400 font-medium mb-2">The All-Seeing Guardian</p>
                         <div className="inline-block mb-6 px-3 py-1 rounded-full border border-emerald/20 bg-emerald/5 w-max">
-                            <span className="text-emerald text-xs font-semibold tracking-wide">v0.2.0</span>
+                            <span className="text-emerald text-xs font-semibold tracking-wide">v0.2.1</span>
                         </div>
                         <p className="text-sm text-gray-500 mt-auto">
                             Made with <span className="text-red-500">❤️</span> by Sarvatarshan Sankar

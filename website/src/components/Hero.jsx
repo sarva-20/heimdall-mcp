@@ -69,7 +69,7 @@ const Hero = () => {
                     </div>
 
                     <div className="inline-block mb-8 px-5 py-1.5 rounded-full border border-emerald bg-transparent">
-                        <span className="text-white text-sm font-medium tracking-wide">v0.2.0 • 35 Tools • Listed on mcpservers.org</span>
+                        <span className="text-white text-sm font-medium tracking-wide">v0.2.1 • 35 Tools • Listed on mcpservers.org</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
@@ -82,9 +82,14 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-                        <button className="w-full sm:w-auto px-8 py-3 rounded-lg bg-emerald text-forest-dark font-bold text-lg hover:shadow-[0_0_20px_rgba(80,200,120,0.5)] transition-all transform hover:-translate-y-1">
+                        <a
+                            href="https://github.com/sarva-20/heimdall-mcp/blob/main/docs/INSTALLATION.md"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-emerald text-forest-dark font-bold text-lg hover:shadow-[0_0_20px_rgba(80,200,120,0.5)] transition-all transform hover:-translate-y-1 inline-flex items-center justify-center"
+                        >
                             Start Your Journey
-                        </button>
+                        </a>
                         <a
                             href="https://github.com/sarva-20/heimdall-mcp"
                             target="_blank"
