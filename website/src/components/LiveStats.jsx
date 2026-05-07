@@ -104,7 +104,7 @@ const LiveStats = () => {
                     />
                     <StatCard
                         title="Total Tools"
-                        value="35+"
+                        value="33"
                         isLoading={false}
                     />
                     <StatCard

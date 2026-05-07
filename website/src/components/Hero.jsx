@@ -69,7 +69,7 @@ const Hero = () => {
                     </div>
 
                     <div className="inline-block mb-8 px-5 py-1.5 rounded-full border border-emerald bg-transparent">
-                        <span className="text-white text-sm font-medium tracking-wide">v0.2.1 • 35 Tools • Listed on mcpservers.org</span>
+                        <span className="text-white text-sm font-medium tracking-wide">v0.2.1 • 33 Tools • Listed on mcpservers.org</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
