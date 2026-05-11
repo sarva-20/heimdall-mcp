@@ -11,6 +11,7 @@
 [![macOS](https://img.shields.io/badge/platform-macOS-lightgrey)](https://www.apple.com/macos/)
 [![Bun](https://img.shields.io/badge/runtime-bun-ff69b4)](https://bun.sh)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Security](https://img.shields.io/badge/security-policy-red)](SECURITY.md)
 
 **"The all-seeing guardian of the Bifröst."**
 
@@ -205,8 +206,15 @@ MIT License - see [LICENSE](LICENSE) for details.
 ---
 
 ## 🙏 Acknowledgments
-
-- Listed on [mcpservers.org](https://mcpservers.org)
+-
+- ## 🔒 Security
+-
+- See [SECURITY.md](SECURITY.md) for our security policy and vulnerability reporting process.
+-
+- Special thanks to:
+- - **Ryan Vonbrubeck** ([@dodge1218](https://github.com/dodge1218)) for responsible disclosure of command injection vulnerability
+-
+-Listed on [mcpservers.org](https://mcpservers.org)
 - Built with the [Model Context Protocol](https://modelcontextprotocol.io) by Anthropic
 - Inspired by Norse mythology and Heimdall, the all-seeing guardian
 
